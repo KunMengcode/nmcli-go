@@ -49,6 +49,7 @@ func NewNMCli(opts ...Option) NMCli {
 
 	cli.General = general.Manager{CommandContext: cli.CommandContext}
 	cli.Device = device.Manager{CommandContext: cli.CommandContext}
+	cli.Connection = connection.Manager{CommandContext: cli.CommandContext}
 
 	return cli
 }

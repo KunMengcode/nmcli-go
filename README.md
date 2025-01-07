@@ -36,10 +36,16 @@ go wrapper for command line tool `nmcli`, The warehouse referenced [leberKleber/
 | `nmcli device disconnect`         | `NMCli.Device.Disconnect(...)`       | :negative_squared_cross_mark: |
 | `nmcli device wifi list`          | `NMCli.Device.WiFiList(...)`         | :heavy_check_mark:            |
 | `nmcli device wifi connect`       | `NMCli.Device.WiFiConnect(...)`      | :heavy_check_mark:            |
-| `nmcli device wifi hotspot`       | `NMCli.Device.WiFiHotspot(...)`      | :negative_squared_cross_mark: |
+| `nmcli device wifi hotspot`       | `NMCli.Device.WiFiHotspot(...)`      | :heavy_check_mark:            |
 | `nmcli device wifi rescan`        | `NMCli.Device.WiFiRescan(...)`       | :negative_squared_cross_mark: |
 | `nmcli device wifi show-password` | `NMCli.Device.WiFiShowPassword(...)` | :negative_squared_cross_mark: |
 | `nmcli device wifi lldp`          | `NMCli.Device.WiFiLLDP(...)`         | :negative_squared_cross_mark: |
+
+## Connection
+
+| original command                  | library path             | implemented                   |
+|-----------------------------------|--------------------------|-------------------------------|
+| `nmcli device up`                 | `NMCli.Connection.Up(...)` | :heavy_check_mark:            |
 
 ## Agent
 

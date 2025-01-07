@@ -13,7 +13,7 @@ type UpOptions struct {
 }
 
 func (m Manager) Up(ctx context.Context, ID string, args UpOptions) (string, error) {
-	cmdArgs := []string{"up", ID}
+	cmdArgs := []string{"connection", "up", ID}
 	cmdArgs = append(cmdArgs, utils.Marshal(args)...)
 	output, err := m.CommandContext(ctx, nmcliCmd, cmdArgs...).Output()
 	if err != nil {
@@ -23,7 +23,7 @@ func (m Manager) Up(ctx context.Context, ID string, args UpOptions) (string, err
 }
 
 func (m Manager) Modify(ctx context.Context, temporary bool, ID string, option map[string]string) (string, error) {
-	cmdArgs := []string{"modify"}
+	cmdArgs := []string{"connection", "modify"}
 	if temporary {
 		cmdArgs = append(cmdArgs, "--temporary")
 	}
