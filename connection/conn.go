@@ -37,3 +37,7 @@ func (m Manager) Modify(ctx context.Context, temporary bool, ID string, option m
 	}
 	return string(output), nil
 }
+
+//func (m Manager) Show(ctx context.Context) (string, error) {
+//	cmdArgs := []string{"NAME", "UUID", "TYPE", "TIMESTAMP", "TIMESTAMP-REAL", "AUTOCONNECT", "AUTOCONNECT-PRIORITY", "READONLY", "DBUS-PATH", "ACTIVE", "DEVICE", "STATE", "ACTIVE-PATH", "SLAVE", "FILENAME"}
+//}

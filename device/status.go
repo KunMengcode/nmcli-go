@@ -51,6 +51,5 @@ func (m Manager) Status(ctx context.Context) ([]Status, error) {
 			ConPath:         fields[8],
 		}
 	}
-
 	return statuss, nil
 }

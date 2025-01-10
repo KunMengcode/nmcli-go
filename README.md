@@ -26,17 +26,17 @@ go wrapper for command line tool `nmcli`, The warehouse referenced [leberKleber/
 
 ## Device
 
-| original command                  | library path                         | implemented                   |
-|-----------------------------------|--------------------------------------|-------------------------------|
-| `nmcli device status`             | `NMCli.Device.Status(...)`           | :heavy_check_mark:            |
-| `nmcli device show`               | `NMCli.Device.Show(...)`             | :negative_squared_cross_mark: |
+| original command                  | library path                         | implemented               |
+|-----------------------------------|--------------------------------------|---------------------------|
+| `nmcli device status`             | `NMCli.Device.Status(...)`           | :heavy_check_mark:        |
+| `nmcli device show`               | `NMCli.Device.Show(...)`             | :heavy_check_mark:        |
 | `nmcli device set`                | `NMCli.Device.Set(...)`              | :negative_squared_cross_mark: |
 | `nmcli device reapply`            | `NMCli.Device.Reapply(...)`          | :negative_squared_cross_mark: |
 | `nmcli device modify`             | `NMCli.Device.Modify(...)`           | :negative_squared_cross_mark: |
 | `nmcli device disconnect`         | `NMCli.Device.Disconnect(...)`       | :negative_squared_cross_mark: |
-| `nmcli device wifi list`          | `NMCli.Device.WiFiList(...)`         | :heavy_check_mark:            |
-| `nmcli device wifi connect`       | `NMCli.Device.WiFiConnect(...)`      | :heavy_check_mark:            |
-| `nmcli device wifi hotspot`       | `NMCli.Device.WiFiHotspot(...)`      | :heavy_check_mark:            |
+| `nmcli device wifi list`          | `NMCli.Device.WiFiList(...)`         | :heavy_check_mark:        |
+| `nmcli device wifi connect`       | `NMCli.Device.WiFiConnect(...)`      | :heavy_check_mark:        |
+| `nmcli device wifi hotspot`       | `NMCli.Device.WiFiHotspot(...)`      | :heavy_check_mark:        |
 | `nmcli device wifi rescan`        | `NMCli.Device.WiFiRescan(...)`       | :negative_squared_cross_mark: |
 | `nmcli device wifi show-password` | `NMCli.Device.WiFiShowPassword(...)` | :negative_squared_cross_mark: |
 | `nmcli device wifi lldp`          | `NMCli.Device.WiFiLLDP(...)`         | :negative_squared_cross_mark: |

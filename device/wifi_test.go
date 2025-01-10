@@ -49,3 +49,21 @@ func TestManager_WiFiHotspotCreate(t *testing.T) {
 	}
 	println(status)
 }
+
+func TestManager_Show(t *testing.T) {
+	m := nmcli_go.NewNMCli()
+	show, err := m.Device.Show(context.Background(), "wlo1")
+	if err != nil {
+		return
+	}
+	println(show)
+}
+
+func TestManager_Status(t *testing.T) {
+	m := nmcli_go.NewNMCli()
+	status, err := m.Device.Status(context.Background())
+	if err != nil {
+		return
+	}
+	println(status)
+}
