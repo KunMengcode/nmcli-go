@@ -39,7 +39,7 @@ func (m Manager) Modify(ctx context.Context, temporary bool, ID string, option m
 }
 
 func (m Manager) Show(ctx context.Context, ConnId string) (map[string][][]string, error) {
-	cmdArgs := []string{"-g", "all", "connection", "show", ConnId}
+	cmdArgs := []string{"-s", "-g", "all", "connection", "show", ConnId}
 	output, err := m.CommandContext(ctx, nmcliCmd, cmdArgs...).Output()
 	if err != nil {
 		return nil, fmt.Errorf("failed to execute nmcli with args %+q: %w", cmdArgs, err)
