@@ -21,7 +21,7 @@ type Device interface {
 	WiFiConnect(ctx context.Context, BSSID string, args device.WiFiConnectOptions) (string, error)
 	WiFiHotspotCreate(ctx context.Context, args device.WiFiHotspotCreateOptions) (string, error)
 	Status(ctx context.Context) ([]device.Status, error)
-	Show(ctx context.Context, DeviceInterfaceName string) (any, error)
+	Show(ctx context.Context, DeviceInterfaceName string) ([]map[string][][]string, error)
 }
 type Connection interface {
 	Up(ctx context.Context, ID string, args connection.UpOptions) (string, error)

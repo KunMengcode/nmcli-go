@@ -45,30 +45,30 @@ func endsWithBracketedNumber(b []byte) bool {
 	return false
 }
 
-func ParseCmdsHaveFieldNameOutput(output []byte) []map[string]any {
+func ParseCmdsHaveFieldNameOutput(output []byte) []map[string][][]string {
 	Group := bytes.Split(output, []byte("\n\n"))
-	res := make([]map[string]any, len(Group))
+	res := make([]map[string][][]string, len(Group))
 	for i, Item := range Group {
-		res[i] = make(map[string]any)
 		res[i] = ParseCmdHaveFieldNameOutput(Item)
 	}
 	return res
 }
 
-func ParseCmdHaveFieldNameOutput(Item []byte) map[string]any {
-	res := make(map[string]any)
+func ParseCmdHaveFieldNameOutput(Item []byte) map[string][][]string {
+	res := make(map[string][][]string)
 	lines := bytes.FieldsFunc(Item, func(c rune) bool { return c == '\n' || c == '\r' })
 	for _, line := range lines {
 		FirstDelimiter := bytes.Index(line, []byte(":"))
 		if endsWithBracketedNumber(line[:FirstDelimiter]) {
 			LBrackets := bytes.Index(line[:FirstDelimiter], []byte("["))
-			val, oK := res[string(line[:LBrackets])].([][]string)
+			val, oK := res[string(line[:LBrackets])]
 			if !oK {
 				res[string(line[:LBrackets])] = make([][]string, 0)
 			}
 			res[string(line[:LBrackets])] = append(val, splitBySeparator(":", string(line[FirstDelimiter+1:])))
 		} else {
-			res[string(line[:FirstDelimiter])] = splitBySeparator(":", string(line[FirstDelimiter+1:]))
+			res[string(line[:FirstDelimiter])] = make([][]string, 0)
+			res[string(line[:FirstDelimiter])] = [][]string{splitBySeparator(":", string(line[FirstDelimiter+1:]))}
 		}
 	}
 	return res
