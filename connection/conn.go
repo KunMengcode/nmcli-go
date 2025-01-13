@@ -38,6 +38,11 @@ func (m Manager) Modify(ctx context.Context, temporary bool, ID string, option m
 	return string(output), nil
 }
 
-//func (m Manager) Show(ctx context.Context) (string, error) {
-//	cmdArgs := []string{"NAME", "UUID", "TYPE", "TIMESTAMP", "TIMESTAMP-REAL", "AUTOCONNECT", "AUTOCONNECT-PRIORITY", "READONLY", "DBUS-PATH", "ACTIVE", "DEVICE", "STATE", "ACTIVE-PATH", "SLAVE", "FILENAME"}
-//}
+func (m Manager) Show(ctx context.Context, ConnId string) (map[string][][]string, error) {
+	cmdArgs := []string{"-g", "all", "connection", "show", ConnId}
+	output, err := m.CommandContext(ctx, nmcliCmd, cmdArgs...).Output()
+	if err != nil {
+		return nil, fmt.Errorf("failed to execute nmcli with args %+q: %w", cmdArgs, err)
+	}
+	return utils.ParseCmdHaveFieldNameOutput(output), nil
+}

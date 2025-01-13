@@ -15,3 +15,12 @@ func TestManager_Up(t *testing.T) {
 	}
 	t.Log(out)
 }
+
+func TestManager_Show(t *testing.T) {
+	m := nmcli_go.NewNMCli()
+	out, err := m.Connection.Show(context.Background(), "hotspot")
+	if err != nil {
+		return
+	}
+	t.Log(out)
+}

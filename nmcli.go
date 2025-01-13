@@ -25,6 +25,7 @@ type Device interface {
 }
 type Connection interface {
 	Up(ctx context.Context, ID string, args connection.UpOptions) (string, error)
+	Show(ctx context.Context, ConnId string) (map[string][][]string, error)
 	Modify(ctx context.Context, temporary bool, ID string, option map[string]string) (string, error)
 }
 
